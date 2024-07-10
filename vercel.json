@@ -11,8 +11,8 @@
   ],
   "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/build/$1"
+      "source": "/(.*)",
+      "destination": "/build/$1"
     }
   ]
 }
