@@ -12,8 +12,12 @@ const Products = () => {
         return new URLSearchParams(window.location.search).get(query);
     };
     const productType = getQueryParams("product_type") || "phones"; // set the default type to phones
-    const [width, setWidth] = useState(document.body.clientWidth);
-    setWidth(document.body.clientWidth);
+    const [width, setWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     return (
         <div className="ProductsPage">
             <Nav />
